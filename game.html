@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Breaker | Number Guessing Game</title>
+
+  <!-- Google Font: Manrope for UI text, JetBrains Mono for numeric score values -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="game.css" />
+</head>
+<body>
+
+  <!-- ==========================================================
+       MAIN APP WRAPPER
+       Centers the game card on the page, constrains max width
+  =========================================================== -->
+  <div class="app-wrapper">
+
+    <main class="game-card" id="gameCard">
+
+      <!-- ==========================================================
+           HEADER: Title + subtitle explaining the objective
+      =========================================================== -->
+      <header class="game-header">
+        <p class="eyebrow">SYSTEM // ACCESS TERMINAL</p>
+        <h1 class="game-title">Code Breaker</h1>
+        <p class="game-subtitle">
+          A secret number is hidden in the system. Guess it before you run out of attempts.
+        </p>
+      </header>
+
+      <!-- ==========================================================
+           DIFFICULTY SELECTOR
+           Radio-style buttons for Easy / Medium / Hard
+      =========================================================== -->
+      <section class="difficulty-section" aria-labelledby="difficultyHeading">
+        <h2 class="section-label" id="difficultyHeading">Difficulty</h2>
+
+        <div class="difficulty-group" id="difficultyGroup" role="group" aria-label="Select difficulty">
+          <input type="radio" name="difficulty" id="difficultyEasy" class="difficulty-input" value="easy" checked />
+          <label for="difficultyEasy" class="difficulty-btn" id="difficultyEasyLabel">
+            Easy
+            <span class="difficulty-hint">1–50</span>
+          </label>
+
+          <input type="radio" name="difficulty" id="difficultyMedium" class="difficulty-input" value="medium" />
+          <label for="difficultyMedium" class="difficulty-btn" id="difficultyMediumLabel">
+            Medium
+            <span class="difficulty-hint">1–100</span>
+          </label>
+
+          <input type="radio" name="difficulty" id="difficultyHard" class="difficulty-input" value="hard" />
+          <label for="difficultyHard" class="difficulty-btn" id="difficultyHardLabel">
+            Hard
+            <span class="difficulty-hint">1–200</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           STATISTICS SECTION
+           Grid of live game stats. Values have IDs for JS to update.
+      =========================================================== -->
+      <section class="stats-section" aria-labelledby="statsHeading">
+        <h2 class="section-label" id="statsHeading">Statistics</h2>
+
+        <div class="stats-grid" id="statsGrid">
+
+          <article class="stat-tile">
+            <p class="stat-label">Attempts</p>
+            <p class="stat-value" id="statAttempts">0</p>
+          </article>
+
+          <article class="stat-tile">
+            <p class="stat-label">Remaining</p>
+            <p class="stat-value" id="statRemaining">10</p>
+          </article>
+
+          <article class="stat-tile">
+            <p class="stat-label">Score</p>
+            <p class="stat-value" id="statScore">0</p>
+          </article>
+
+          <article class="stat-tile">
+            <p class="stat-label">Best Score</p>
+            <p class="stat-value" id="statBestScore">0</p>
+          </article>
+
+          <article class="stat-tile">
+            <p class="stat-label">Win Streak</p>
+            <p class="stat-value" id="statStreak">0</p>
+          </article>
+
+          <article class="stat-tile">
+            <p class="stat-label">Games Played</p>
+            <p class="stat-value" id="statGamesPlayed">0</p>
+          </article>
+
+          <article class="stat-tile">
+            <p class="stat-label">Games Won</p>
+            <p class="stat-value" id="statGamesWon">0</p>
+          </article>
+
+          <article class="stat-tile">
+            <p class="stat-label">Accuracy</p>
+            <p class="stat-value" id="statAccuracy">0%</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           GUESS INPUT FORM
+           Labeled input + submit button
+      =========================================================== -->
+      <section class="input-section" aria-labelledby="guessHeading">
+        <h2 class="section-label" id="guessHeading">Your Guess</h2>
+
+        <form class="guess-form" id="guessForm" autocomplete="off">
+          <div class="input-row">
+            <label for="guessInput" class="visually-hidden">Enter your guess</label>
+            <input
+              type="number"
+              id="guessInput"
+              name="guessInput"
+              class="guess-input"
+              placeholder="Enter a number..."
+              inputmode="numeric"
+              required
+            />
+            <button type="submit" id="submitGuessBtn" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+
+        <!-- Feedback area: too high / too low / correct / errors -->
+        <p class="feedback" id="feedbackArea" role="status" aria-live="polite">
+          Enter a number to begin cracking the code.
+        </p>
+      </section>
+
+      <!-- ==========================================================
+           PREVIOUS GUESSES
+           History list, most recent guess shown first
+      =========================================================== -->
+      <section class="history-section" aria-labelledby="historyHeading">
+        <h2 class="section-label" id="historyHeading">Previous Guesses</h2>
+
+        <ul class="history-list" id="historyList">
+          <!-- Example item structure for JS to replicate:
+          <li class="history-item history-item--high">
+            <span class="history-guess">42</span>
+            <span class="history-result">Too high</span>
+          </li>
+          -->
+          <li class="history-empty" id="historyEmpty">No guesses yet.</li>
+        </ul>
+      </section>
+
+      <!-- ==========================================================
+           PLAY AGAIN CONTROL
+      =========================================================== -->
+      <section class="restart-section">
+        <button type="button" id="playAgainBtn" class="btn btn-secondary">
+          Play Again
+        </button>
+      </section>
+
+    </main>
+
+    <!-- ==========================================================
+         FOOTER
+    =========================================================== -->
+    <footer class="site-footer">
+      <p>Built with HTML, CSS &amp; JavaScript</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
