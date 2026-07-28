@@ -22,8 +22,8 @@ No Bootstrap, Tailwind, or external UI libraries were used.
 ## Project Structure
 
 ```
-├── index.html      # Semantic markup for the game UI
-├── style.css       # All styling (organized by section, see comments)
+├── game.html      # Semantic markup for the game UI
+├── game.css       # All styling (organized by section, see comments)
 └── script.js       # Game logic — to be added
 ```
 
