@@ -5,6 +5,8 @@ function randomNumberGen(diffInt)
 
 let randomNumber;
 
+let guess;
+
 
 function startGame()
 {
@@ -32,11 +34,37 @@ function startGame()
 
     document.getElementById('statAttempts').innerHTML = '0';
 
-    return randomNumber;
 }
 
+function checkGuess()
+{
+    guess = document.getElementById('guessInput').value;
 
-document.addEventListener('DOMContentLoaded', startGame );
+    if (guess == randomNumber)
+    {
+        document.getElementById('feedbackArea').innerHTML = `W! You guessed the correct Number. ${randomNumber} was the Random Number`;
+
+    }
+
+    else if (guess > randomNumber)
+    {
+        document.getElementById('feedbackArea').innerHTML = `Too Bigggggg. You are of by alot`;
+    }
+
+    else 
+    {
+        document.getElementById('feedbackArea').innerHTML = `Too Small. Guess a lil higher`;
+    }
+
+}
+
+document.addEventListener ('DOMContentLoaded', startGame);
+
+const submitGuessBtn = document.getElementById('submitGuessBtn');
+
+submitGuessBtn.addEventListener('click' , checkGuess);
+
+
 
 const playAgainBtn = document.getElementById('playAgainBtn');
 playAgainBtn.addEventListener('click' , startGame);
