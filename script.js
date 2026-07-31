@@ -1,7 +1,10 @@
 function randomNumberGen(diffInt) 
 {
-  return Math.floor(Math.random() * diffInt + 1);
+    return Math.floor(Math.random() * diffInt + 1);
 }
+
+
+let attempt;
 
 let randomNumber;
 
@@ -10,6 +13,15 @@ let guess;
 
 function startGame()
 {
+    attempt = 0;
+
+    document.getElementById ('guessInput').disabled = false;
+
+    document.getElementById ('submitGuessBtn').disabled = false;
+
+    document.getElementById('guessInput').value = '';
+
+
 
     let difficultyEasy = document.getElementById('difficultyEasy').checked;
     let difficultyMedium = document.getElementById('difficultyMedium').checked;
@@ -34,7 +46,11 @@ function startGame()
 
     document.getElementById('statAttempts').innerHTML = '0';
 
+    console.log(randomNumber);
 }
+
+
+
 
 function checkGuess()
 {
@@ -43,6 +59,10 @@ function checkGuess()
     if (guess == randomNumber)
     {
         document.getElementById('feedbackArea').innerHTML = `W! You guessed the correct Number. ${randomNumber} was the Random Number`;
+
+        document.getElementById ('guessInput').disabled = true;
+
+        document.getElementById ('submitGuessBtn').disabled = true;
 
     }
 
@@ -56,6 +76,8 @@ function checkGuess()
         document.getElementById('feedbackArea').innerHTML = `Too Small. Guess a lil higher`;
     }
 
+    document.getElementById('statAttempts').innerHTML = attempt +=1;
+
 }
 
 document.addEventListener ('DOMContentLoaded', startGame);
@@ -68,3 +90,10 @@ submitGuessBtn.addEventListener('click' , checkGuess);
 
 const playAgainBtn = document.getElementById('playAgainBtn');
 playAgainBtn.addEventListener('click' , startGame);
+
+const myForm = document.getElementById('guessForm');
+
+myForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    checkGuess ();
+});
