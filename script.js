@@ -5,22 +5,19 @@ function randomNumberGen(diffInt)
 
 
 let attempt;
-
 let randomNumber;
-
 let guess;
+let remaining;
 
 
 function startGame()
 {
     attempt = 0;
+    remaining = 10;
 
     document.getElementById ('guessInput').disabled = false;
-
     document.getElementById ('submitGuessBtn').disabled = false;
-
     document.getElementById('guessInput').value = '';
-
 
 
     let difficultyEasy = document.getElementById('difficultyEasy').checked;
@@ -43,20 +40,23 @@ function startGame()
         randomNumber = randomNumberGen(200);
     }
 
-
     document.getElementById('statAttempts').innerHTML = '0';
 
     console.log(randomNumber);
 }
 
 
-
-
 function checkGuess()
 {
+        
     guess = document.getElementById('guessInput').value;
+    
+    document.getElementById('statAttempts').innerHTML = attempt +=1;
 
-    if (guess == randomNumber)
+    document.getElementById('statRemaining').innerHTML = remaining -=1; 
+    
+    
+    if (guess == randomNumber )
     {
         document.getElementById('feedbackArea').innerHTML = `W! You guessed the correct Number. ${randomNumber} was the Random Number`;
 
@@ -65,28 +65,32 @@ function checkGuess()
         document.getElementById ('submitGuessBtn').disabled = true;
 
     }
+    
+    else if (remaining == 0)
+    {
+        document.getElementById('feedbackArea').innerHTML = `GAME OVER. ${randomNumber} was the Random Number. Play Again?`;
 
-    else if (guess > randomNumber)
+        document.getElementById ('guessInput').disabled = true;
+
+        document.getElementById ('submitGuessBtn').disabled = true;
+    
+    }
+
+    else if (guess > randomNumber )
     {
         document.getElementById('feedbackArea').innerHTML = `Too Bigggggg. You are of by alot`;
     }
 
-    else 
+    else if (guess < randomNumber)
     {
         document.getElementById('feedbackArea').innerHTML = `Too Small. Guess a lil higher`;
     }
 
-    document.getElementById('statAttempts').innerHTML = attempt +=1;
+
 
 }
 
 document.addEventListener ('DOMContentLoaded', startGame);
-
-const submitGuessBtn = document.getElementById('submitGuessBtn');
-
-submitGuessBtn.addEventListener('click' , checkGuess);
-
-
 
 const playAgainBtn = document.getElementById('playAgainBtn');
 playAgainBtn.addEventListener('click' , startGame);
