@@ -101,3 +101,5 @@ myForm.addEventListener('submit', function(event) {
     event.preventDefault();
     checkGuess ();
 });
+
+console.log(randomNumber)
