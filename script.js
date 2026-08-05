@@ -17,7 +17,7 @@ function startGame()
     remaining = 10;
     
     
-
+    document.getElementById('statRemaining').innerHTML = remaining;
     document.getElementById('statScore').innerHTML = score;
     document.getElementById('guessInput').innerHTML = '';
     document.getElementById ('guessInput').disabled = false;
