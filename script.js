@@ -56,13 +56,14 @@ function checkGuess()
     
 
     guess = document.getElementById('guessInput').value;
+    guess = Number(guess);
     
     document.getElementById('statAttempts').innerHTML = attempt +=1;
 
     document.getElementById('statRemaining').innerHTML = remaining -=1; 
     
     
-    if (guess == randomNumber )
+    if (guess === randomNumber )
     {
         document.getElementById('feedbackArea').innerHTML = `W! You guessed the correct Number. ${randomNumber} was the Random Number`;
 
@@ -77,7 +78,7 @@ function checkGuess()
 
     }
     
-    else if (remaining == 0)
+    else if (remaining === 0)
     {
         document.getElementById('feedbackArea').innerHTML = `GAME OVER. ${randomNumber} was the Random Number. Play Again?`;
 
