@@ -16,7 +16,7 @@ function startGame()
     attempt = 0;
     remaining = 10;
     
-    
+    document.getElementById('feedbackArea').innerHTML = 'Enter a number to begin cracking the code.';
     document.getElementById('statRemaining').innerHTML = remaining;
     document.getElementById('statScore').innerHTML = score;
     document.getElementById('guessInput').innerHTML = '';
