@@ -8,13 +8,18 @@ let attempt;
 let randomNumber;
 let guess;
 let remaining;
+let score = 0;
 
 
 function startGame()
 {
     attempt = 0;
     remaining = 10;
+    
+    
 
+    document.getElementById('statScore').innerHTML = score;
+    document.getElementById('guessInput').innerHTML = '';
     document.getElementById ('guessInput').disabled = false;
     document.getElementById ('submitGuessBtn').disabled = false;
     document.getElementById('guessInput').value = '';
@@ -48,7 +53,8 @@ function startGame()
 
 function checkGuess()
 {
-        
+    
+
     guess = document.getElementById('guessInput').value;
     
     document.getElementById('statAttempts').innerHTML = attempt +=1;
@@ -63,6 +69,11 @@ function checkGuess()
         document.getElementById ('guessInput').disabled = true;
 
         document.getElementById ('submitGuessBtn').disabled = true;
+
+        score = score+remaining+1;
+
+        document.getElementById('statScore').innerHTML = score;
+
 
     }
     
@@ -86,7 +97,7 @@ function checkGuess()
         document.getElementById('feedbackArea').innerHTML = `Too Small. Guess a lil higher`;
     }
 
-
+ 
 
 }
 
@@ -102,4 +113,3 @@ myForm.addEventListener('submit', function(event) {
     checkGuess ();
 });
 
-console.log(randomNumber)
