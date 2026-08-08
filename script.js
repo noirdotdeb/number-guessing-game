@@ -19,7 +19,6 @@ function startGame()
     document.getElementById('feedbackArea').innerHTML = 'Enter a number to begin cracking the code.';
     document.getElementById('statRemaining').innerHTML = remaining;
     document.getElementById('statScore').innerHTML = score;
-    document.getElementById('guessInput').innerHTML = '';
     document.getElementById ('guessInput').disabled = false;
     document.getElementById ('submitGuessBtn').disabled = false;
     document.getElementById('guessInput').value = '';
@@ -98,6 +97,8 @@ function checkGuess()
         document.getElementById('feedbackArea').innerHTML = `Too Small. Guess a lil higher`;
     }
 
+
+    document.getElementById('guessInput').value = '';
  
 
 }
