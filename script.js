@@ -11,6 +11,9 @@ let guess;
 let remaining;
 let score;
 let gamesPlayed = 0;
+let totalGames;
+let totalWon;
+let accuracy;
 
 
 function startGame()
@@ -58,7 +61,6 @@ function checkGuess()
 
 
 
-    
     guess = document.getElementById('guessInput').value;
     guess = Number(guess);
     
@@ -79,9 +81,9 @@ function checkGuess()
 
         document.getElementById('statScore').innerHTML = score;
 
-        document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
+        totalGames = document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
 
-        document.getElementById('statGamesWon').innerHTML = gamesWon +=1;
+        totalWon = document.getElementById('statGamesWon').innerHTML = gamesWon +=1;
 
 
 
@@ -91,7 +93,7 @@ function checkGuess()
     {
         document.getElementById('feedbackArea').innerHTML = `GAME OVER. ${randomNumber} was the Random Number. Play Again?`;
 
-        document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
+        totalGames = document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
 
         document.getElementById ('guessInput').disabled = true;
 
@@ -112,6 +114,12 @@ function checkGuess()
 
 
     document.getElementById('guessInput').value = '';
+
+    accuracy = (totalWon/totalGames)*100;
+
+    document.getElementById('statAccuracy').innerHTML = `${accuracy.toFixed(2)}%`;
+
+
  
 
 }
