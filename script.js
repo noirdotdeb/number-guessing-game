@@ -8,13 +8,15 @@ let attempt;
 let randomNumber;
 let guess;
 let remaining;
-let score = 0;
+let score;
+let gamesPlayed = 0;
 
 
 function startGame()
 {
     attempt = 0;
     remaining = 10;
+    score = 0;
     
     document.getElementById('feedbackArea').innerHTML = 'Enter a number to begin cracking the code.';
     document.getElementById('statRemaining').innerHTML = remaining;
@@ -52,8 +54,9 @@ function startGame()
 
 function checkGuess()
 {
-    
 
+
+    
     guess = document.getElementById('guessInput').value;
     guess = Number(guess);
     
@@ -74,6 +77,8 @@ function checkGuess()
 
         document.getElementById('statScore').innerHTML = score;
 
+        document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
+
 
     }
     
@@ -81,9 +86,12 @@ function checkGuess()
     {
         document.getElementById('feedbackArea').innerHTML = `GAME OVER. ${randomNumber} was the Random Number. Play Again?`;
 
+        document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
+
         document.getElementById ('guessInput').disabled = true;
 
         document.getElementById ('submitGuessBtn').disabled = true;
+
     
     }
 
