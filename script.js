@@ -4,6 +4,7 @@ function randomNumberGen(diffInt)
 }
 
 
+let gamesWon = 0;
 let attempt;
 let randomNumber;
 let guess;
@@ -56,6 +57,7 @@ function checkGuess()
 {
 
 
+
     
     guess = document.getElementById('guessInput').value;
     guess = Number(guess);
@@ -78,6 +80,9 @@ function checkGuess()
         document.getElementById('statScore').innerHTML = score;
 
         document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
+
+        document.getElementById('statGamesWon').innerHTML = gamesWon +=1;
+
 
 
     }
