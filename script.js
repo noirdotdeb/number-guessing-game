@@ -13,7 +13,7 @@ let bestScore = 0;
 let score;
 let gamesPlayed = 0;
 let totalGames;
-
+let winStreak = 0;
 
 function startGame()
 {
@@ -59,7 +59,7 @@ function checkGuess()
 {
 
 
-
+    
     guess = document.getElementById('guessInput').value;
     guess = Number(guess);
     
@@ -70,6 +70,7 @@ function checkGuess()
     
     if (guess === randomNumber )
     {
+        
         document.getElementById('feedbackArea').innerHTML = `W! You guessed the correct Number. ${randomNumber} was the Random Number`;
 
         document.getElementById ('guessInput').disabled = true;
@@ -87,7 +88,7 @@ function checkGuess()
             
         }      
         
-        
+        document.getElementById('statStreak').innerHTML = winStreak += 1;
 
         gamesPlayed = document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
 
@@ -99,6 +100,8 @@ function checkGuess()
     
     else if (remaining === 0)
     {
+        winStreak = 0;
+
         document.getElementById('feedbackArea').innerHTML = `GAME OVER. ${randomNumber} was the Random Number. Play Again?`;
 
         gamesPlayed = document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
@@ -106,6 +109,8 @@ function checkGuess()
         document.getElementById ('guessInput').disabled = true;
 
         document.getElementById ('submitGuessBtn').disabled = true;
+
+        document.getElementById('statStreak').innerHTML = winStreak;
 
     
     }
