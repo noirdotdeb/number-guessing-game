@@ -59,7 +59,7 @@ function checkGuess()
 {
 
 
-    
+    let winRate;
     guess = document.getElementById('guessInput').value;
     guess = Number(guess);
     
@@ -94,6 +94,9 @@ function checkGuess()
 
         gamesWon = document.getElementById('statGamesWon').innerHTML = gamesWon +=1;
 
+        winRate = (gamesWon/gamesPlayed)*100;
+
+        document.getElementById('statAccuracy').innerHTML = `${winRate.toFixed(2)}%`;   
 
 
     }
@@ -112,6 +115,10 @@ function checkGuess()
 
         document.getElementById('statStreak').innerHTML = winStreak;
 
+        let winRate = (gamesWon/gamesPlayed)*100;
+
+        document.getElementById('statAccuracy').innerHTML = `${winRate.toFixed(2)}%`;        
+
     
     }
 
@@ -127,13 +134,6 @@ function checkGuess()
 
 
     document.getElementById('guessInput').value = '';
-
-    let winRate = (gamesWon/gamesPlayed)*100;
-
-    document.getElementById('statAccuracy').innerHTML = `${winRate.toFixed(2)}%`;
-
-
- 
 
 }
 
