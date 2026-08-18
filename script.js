@@ -9,6 +9,7 @@ let attempt;
 let randomNumber;
 let guess;
 let remaining;
+let bestScore = 0;
 let score;
 let gamesPlayed = 0;
 let totalGames;
@@ -79,6 +80,15 @@ function checkGuess()
 
         document.getElementById('statScore').innerHTML = score;
 
+        if (score > bestScore)
+        {
+            bestScore = score;
+            document.getElementById('statBestScore').innerHTML = bestScore;
+            
+        }      
+        
+        
+
         gamesPlayed = document.getElementById('statGamesPlayed').innerHTML = gamesPlayed +=1;
 
         gamesWon = document.getElementById('statGamesWon').innerHTML = gamesWon +=1;
@@ -113,7 +123,7 @@ function checkGuess()
 
     document.getElementById('guessInput').value = '';
 
-    winRate = (gamesWon/gamesPlayed)*100;
+    let winRate = (gamesWon/gamesPlayed)*100;
 
     document.getElementById('statAccuracy').innerHTML = `${winRate.toFixed(2)}%`;
 
