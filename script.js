@@ -8,14 +8,15 @@ let score;
 let guess;
 let attempt;
 let remaining;
-let gamesWon = 0;
 let randomNumber;
-let winStreak = 0;
-let bestScore = 0;
 let difficultyEasy;
 let difficultyHard;
-let gamesPlayed = 0;
 let difficultyMedium;
+let gamesWon = 0;
+let winStreak = 0;
+let bestScore = 0;
+const guesses = [];
+let gamesPlayed = 0;
 
 function startGame()
 {
@@ -65,13 +66,15 @@ function checkGuess()
     guess = document.getElementById('guessInput').value;
     guess = Number(guess);
 
+    
+
     let maxNumber;
 
 
     if (difficultyEasy)
     {
         maxNumber = 50;
-        console.log('hi i am difficultyEasy');
+        
     }
 
     else if (difficultyMedium)
@@ -92,11 +95,11 @@ function checkGuess()
         return;
     }
 
-    else 
-    {
-        console.log('valid guess');
-    }
+    
  
+    guesses.push(guess);
+
+    
     
     document.getElementById('statAttempts').innerHTML = attempt +=1;
 
@@ -167,6 +170,8 @@ function checkGuess()
         document.getElementById('feedbackArea').innerHTML = `Too Small. Guess a lil higher`;
     }
 
+    document.getElementsByClassName('')
+
 
     document.getElementById('guessInput').value = '';
 
@@ -183,4 +188,3 @@ myForm.addEventListener('submit', function(event) {
     event.preventDefault();
     checkGuess ();
 });
-
