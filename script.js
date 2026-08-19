@@ -4,22 +4,28 @@ function randomNumberGen(diffInt)
 }
 
 
-let gamesWon = 0;
-let attempt;
-let randomNumber;
-let guess;
-let remaining;
-let bestScore = 0;
 let score;
-let gamesPlayed = 0;
-let totalGames;
+let guess;
+let attempt;
+let remaining;
+let gamesWon = 0;
+let randomNumber;
 let winStreak = 0;
+let bestScore = 0;
+let difficultyEasy;
+let difficultyHard;
+let gamesPlayed = 0;
+let difficultyMedium;
 
 function startGame()
 {
+    score = 0;
     attempt = 0;
     remaining = 10;
-    score = 0;
+
+    difficultyEasy = document.getElementById('difficultyEasy').checked;
+    difficultyMedium = document.getElementById('difficultyMedium').checked;
+    difficultyHard = document.getElementById('difficultyHard').checked;
     
     document.getElementById('feedbackArea').innerHTML = 'Enter a number to begin cracking the code.';
     document.getElementById('statRemaining').innerHTML = remaining;
@@ -28,10 +34,6 @@ function startGame()
     document.getElementById ('submitGuessBtn').disabled = false;
     document.getElementById('guessInput').value = '';
 
-
-    let difficultyEasy = document.getElementById('difficultyEasy').checked;
-    let difficultyMedium = document.getElementById('difficultyMedium').checked;
-    let difficultyHard = document.getElementById('difficultyHard').checked;
     
 
     if (difficultyEasy)
@@ -62,6 +64,39 @@ function checkGuess()
     let winRate;
     guess = document.getElementById('guessInput').value;
     guess = Number(guess);
+
+    let maxNumber;
+
+
+    if (difficultyEasy)
+    {
+        maxNumber = 50;
+        console.log('hi i am difficultyEasy');
+    }
+
+    else if (difficultyMedium)
+    {
+        maxNumber = 100;
+    }
+
+    else if (difficultyHard)
+    {
+        maxNumber = 200;
+    }
+
+
+    if (guess < 1 || guess > maxNumber)
+    {
+        document.getElementById('feedbackArea').innerHTML = `You guessed an out of range number please guess within the range of 1-${maxNumber}`;
+        document.getElementById('guessInput').value = '';
+        return;
+    }
+
+    else 
+    {
+        console.log('valid guess');
+    }
+ 
     
     document.getElementById('statAttempts').innerHTML = attempt +=1;
 
