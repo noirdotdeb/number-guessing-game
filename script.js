@@ -102,14 +102,16 @@ function checkGuess()
 
     console.log(guesses);
 
-    
-    
-        const historyList = document.getElementById('historyList');
+    document.getElementById('historyEmpty').innerHTML = '';
 
-        const historyGuess = document.createElement('li');
 
-        historyGuess.innerHTML = guesses[attempt];
-        historyList.appendChild(historyGuess);        
+
+    const historyList = document.getElementById('historyList');
+
+    const historyGuess = document.createElement('li');
+
+    historyGuess.innerHTML = guesses[attempt];
+    historyList.appendChild(historyGuess);        
 
 
     
