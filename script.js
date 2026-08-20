@@ -99,6 +99,19 @@ function checkGuess()
  
     guesses.push(guess);
 
+
+    console.log(guesses);
+
+    
+    
+        const historyList = document.getElementById('historyList');
+
+        const historyGuess = document.createElement('li');
+
+        historyGuess.innerHTML = guesses[attempt];
+        historyList.appendChild(historyGuess);        
+
+
     
     
     document.getElementById('statAttempts').innerHTML = attempt +=1;
@@ -170,7 +183,13 @@ function checkGuess()
         document.getElementById('feedbackArea').innerHTML = `Too Small. Guess a lil higher`;
     }
 
-    document.getElementsByClassName('')
+
+
+    
+
+
+    
+
 
 
     document.getElementById('guessInput').value = '';
