@@ -15,25 +15,33 @@ let difficultyMedium;
 let gamesWon = 0;
 let winStreak = 0;
 let bestScore = 0;
-const guesses = [];
+let guesses = [];
 let gamesPlayed = 0;
+let historyList;
+let historyGuess;
+
+
 
 function startGame()
 {
     score = 0;
     attempt = 0;
     remaining = 10;
+    guesses = [];
 
     difficultyEasy = document.getElementById('difficultyEasy').checked;
     difficultyMedium = document.getElementById('difficultyMedium').checked;
     difficultyHard = document.getElementById('difficultyHard').checked;
-    
+
+    historyList = document.getElementById('historyList');
+    historyList.innerHTML = '';
     document.getElementById('feedbackArea').innerHTML = 'Enter a number to begin cracking the code.';
     document.getElementById('statRemaining').innerHTML = remaining;
     document.getElementById('statScore').innerHTML = score;
     document.getElementById ('guessInput').disabled = false;
     document.getElementById ('submitGuessBtn').disabled = false;
     document.getElementById('guessInput').value = '';
+    
 
     
 
@@ -106,9 +114,9 @@ function checkGuess()
 
 
 
-    const historyList = document.getElementById('historyList');
-
-    const historyGuess = document.createElement('li');
+    
+    historyList = document.getElementById('historyList');
+    historyGuess = document.createElement('li');
 
     historyGuess.innerHTML = guesses[attempt];
     historyList.appendChild(historyGuess);        
