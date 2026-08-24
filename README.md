@@ -1,19 +1,22 @@
+````markdown
 # Code Breaker — Number Guessing Game
 
 A minimal, dark-themed number guessing game with a subtle cyberpunk feel.
-The player has to guess a secret number within a limited number of attempts,
-tracked across difficulty levels with live stats (score, streak, accuracy, etc).
 
-> **Status:** UI/UX complete. Game logic (JavaScript) is in progress and will
-> be added soon. This README will be updated once that's in place.
+The player has to guess a randomly generated secret number within a limited
+number of attempts. The game includes multiple difficulty levels, live
+statistics, score tracking, win streaks, best score tracking, and a history
+of previous guesses.
+
+> **Status:** Complete
 
 ---
 
 ## Tech Stack
 
 - **HTML5** — semantic structure
-- **CSS3** — custom properties, Flexbox, Grid, no frameworks
-- **JavaScript** — *(coming soon)* — will handle all game logic
+- **CSS3** — custom properties, Flexbox, Grid, responsive design
+- **JavaScript** — game logic, validation, statistics, and DOM manipulation
 
 No Bootstrap, Tailwind, or external UI libraries were used.
 
@@ -21,65 +24,146 @@ No Bootstrap, Tailwind, or external UI libraries were used.
 
 ## Project Structure
 
-```
+```text
 ├── game.html      # Semantic markup for the game UI
-├── game.css       # All styling (organized by section, see comments)
-└── script.js       # Game logic — to be added
-```
+├── game.css       # All styling and responsive design
+└── script.js      # Game logic and DOM interactions
+````
 
 ---
 
-## Features (UI)
+## Features
 
-- Difficulty selector (Easy / Medium / Hard)
-- Live statistics panel (attempts, remaining attempts, score, best score,
-  win streak, games played, games won, accuracy)
-- Guess input with a submit button
-- Feedback area for guess results
-- Previous guesses history list
-- Play Again control
-- Fully responsive, no horizontal scroll, accessible focus states
+* Difficulty selector:
+
+  * Easy — numbers from 1–50
+  * Medium — numbers from 1–100
+  * Hard — numbers from 1–200
+* Random number generation
+* Limited attempts per game
+* Input validation
+* Out-of-range guess detection
+* Higher/lower guess feedback
+* Live statistics:
+
+  * Attempts
+  * Remaining attempts
+  * Current score
+  * Best score
+  * Win streak
+  * Games played
+  * Games won
+  * Win rate
+* Previous guesses history
+* Visual feedback for:
+
+  * Correct guesses
+  * Too high guesses
+  * Too low guesses
+* Game-over handling
+* Play Again / game reset functionality
+* Best score tracking during the session
+* Win streak tracking
+* Responsive UI
+* Accessible focus states
+* No horizontal scrolling
+
+---
+
+## Scoring
+
+The score is based on the number of attempts remaining when the player
+successfully guesses the secret number.
+
+The more attempts remaining when the number is guessed, the higher the score.
+
+The best score is tracked throughout the current session.
 
 ---
 
 ## AI Usage Disclosure
 
-I used AI (Claude) to help generate the **UI/UX** — the HTML structure and
-CSS styling — based on a detailed design spec I gave it (color palette,
-layout constraints, accessibility requirements, etc).
+AI (Claude) was used to help generate the **UI/UX implementation**,
+including the HTML structure and CSS styling, based on a design specification
+I provided covering the visual style, layout, color palette, responsiveness,
+and accessibility requirements.
 
-**All game logic (JavaScript) is being written by me.** This includes:
-- Random number generation
-- Guess validation and comparison logic
-- Attempts/remaining attempts tracking
-- Score, streak, and accuracy calculations
-- Difficulty handling
-- DOM updates for stats, feedback, and guess history
-- Play Again / reset behavior
+The **game logic was developed by me**. This includes:
 
-I'm disclosing this here for transparency and will keep this section updated
-as the project develops.
+* Random number generation
+* Difficulty handling
+* Guess validation
+* Guess comparison logic
+* Attempts and remaining attempts tracking
+* Score calculation
+* Best score tracking
+* Win streak tracking
+* Games played and games won tracking
+* Win rate calculation
+* DOM updates
+* Guess history rendering
+* Game-over handling
+* Play Again / reset behavior
+
+AI was later used to help refactor and organize parts of the JavaScript after
+the core functionality had been developed.
+
+I'm disclosing AI usage for transparency.
+
+---
+
+## What I Learned
+
+This project was built as a JavaScript learning project and helped me
+practice:
+
+* JavaScript variables and scope
+* `let` and `const`
+* Functions and parameters
+* Conditional logic
+* Arrays
+* Number conversion and validation
+* DOM selection and manipulation
+* Creating and appending DOM elements
+* Event listeners
+* Form submission handling
+* Dynamic UI updates
+* Game state management
+* Basic application logic and statistics
 
 ---
 
 ## Roadmap
 
-- [ ] Add `script.js` with full game logic
-- [ ] Wire up difficulty selection to number ranges
-- [ ] Implement guess validation + feedback messages
-- [ ] Implement stats tracking (score, streak, accuracy, etc.)
-- [ ] Implement guess history rendering
-- [ ] Implement Play Again / reset flow
-- [ ] Final testing across devices
-- [ ] Update this README with final details, screenshots, and instructions
+* [x] Build semantic HTML structure
+* [x] Design responsive UI
+* [x] Implement difficulty selection
+* [x] Implement random number generation
+* [x] Implement guess validation
+* [x] Implement guess comparison and feedback
+* [x] Implement attempts and remaining attempts
+* [x] Implement scoring system
+* [x] Implement best score tracking
+* [x] Implement win streak tracking
+* [x] Implement games played / games won statistics
+* [x] Implement win rate
+* [x] Implement guess history
+* [x] Implement Play Again / reset flow
+* [x] Add game-over handling
+* [x] Test game functionality
+* [ ] Add screenshots / demo GIF
 
 ---
 
 ## Author
 
-Ali Saad Attique
+**Ali Saad Attique**
+
 GitHub: [noirdotdeb](https://github.com/noirdotdeb)
 
 ---
 
-*This README will be updated as the project progresses.*
+*Built as a JavaScript learning project.*
+
+```
+```
