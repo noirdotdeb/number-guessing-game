@@ -546,3 +546,105 @@ input:focus-visible {
     padding: var(--space-xl);
   }
 }
+/* ==========================================================================
+   RESULT MODAL (WIN / LOSS POPUP)
+   Hidden by default via display:none. Add "is-visible" class on
+   #resultOverlay (via JS) to reveal it. Blocks interaction with the
+   rest of the page since the overlay covers the full viewport.
+   ========================================================================== */
+.result-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(4, 6, 10, 0.72);
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  z-index: 100;
+}
+
+.result-overlay.is-visible {
+  display: flex;
+}
+
+.result-modal {
+  width: 100%;
+  max-width: 340px;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border-strong);
+  border-top: 3px solid var(--color-text-muted);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  text-align: center;
+  animation: fade-in-up 220ms ease;
+  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.7);
+}
+
+/* Outcome-specific accent — add one of these classes to #resultModal via JS */
+.result-modal--win {
+  border-top-color: var(--color-success);
+}
+
+.result-modal--loss {
+  border-top-color: var(--color-error);
+}
+
+.result-eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+.result-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.result-modal--win .result-title {
+  color: var(--color-success);
+}
+
+.result-modal--loss .result-title {
+  color: var(--color-error);
+}
+
+.result-message {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.result-score-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background-color: var(--color-card-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-xs) 0;
+}
+
+.result-score-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.result-score-value {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.result-play-again-btn {
+  margin-top: var(--space-xs);
+}
