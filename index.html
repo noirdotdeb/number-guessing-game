@@ -168,6 +168,37 @@
         </button>
       </section>
 
+            <!-- ==========================================================
+           RESULT MODAL (Win / Loss)
+           Hidden by default. Toggle visibility via JS by adding/
+           removing the "is-visible" class on #resultOverlay.
+           Use resultModal--win or resultModal--loss on #resultModal
+           to switch the accent color depending on outcome.
+      =========================================================== -->
+      <div class="result-overlay" id="resultOverlay">
+        <article
+          class="result-modal"
+          id="resultModal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="resultTitle"
+          aria-describedby="resultMessage"
+        >
+          <p class="result-eyebrow" id="resultEyebrow">STATUS</p>
+          <h2 class="result-title" id="resultTitle">Placeholder Title</h2>
+          <p class="result-message" id="resultMessage">Placeholder message goes here.</p>
+
+          <div class="result-score-row">
+            <span class="result-score-label">Final Score</span>
+            <span class="result-score-value" id="resultScoreValue">0</span>
+          </div>
+
+          <button type="button" class="btn btn-primary result-play-again-btn" id="modalPlayAgainBtn">
+            Play Again
+          </button>
+        </article>
+      </div>
+
     </main>
 
     <!-- ==========================================================
