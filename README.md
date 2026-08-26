@@ -1,22 +1,16 @@
-````markdown
 # Code Breaker — Number Guessing Game
 
 A minimal, dark-themed number guessing game with a subtle cyberpunk feel.
-
-The player has to guess a randomly generated secret number within a limited
-number of attempts. The game includes multiple difficulty levels, live
-statistics, score tracking, win streaks, best score tracking, and a history
-of previous guesses.
-
-> **Status:** Complete
+The player has to guess a secret number within a limited number of attempts,
+tracked across difficulty levels with live stats (score, streak, accuracy, etc).
 
 ---
 
 ## Tech Stack
 
 - **HTML5** — semantic structure
-- **CSS3** — custom properties, Flexbox, Grid, responsive design
-- **JavaScript** — game logic, validation, statistics, and DOM manipulation
+- **CSS3** — custom properties, Flexbox, Grid, no frameworks
+- **JavaScript** — vanilla, no libraries
 
 No Bootstrap, Tailwind, or external UI libraries were used.
 
@@ -24,146 +18,61 @@ No Bootstrap, Tailwind, or external UI libraries were used.
 
 ## Project Structure
 
-```text
-├── game.html      # Semantic markup for the game UI
-├── game.css       # All styling and responsive design
-└── script.js      # Game logic and DOM interactions
-````
+```
+├── index.html      # Semantic markup for the game UI
+├── style.css       # All styling (organized by section, see comments)
+└── script.js       # Game logic
+```
 
 ---
 
 ## Features
 
-* Difficulty selector:
-
-  * Easy — numbers from 1–50
-  * Medium — numbers from 1–100
-  * Hard — numbers from 1–200
-* Random number generation
-* Limited attempts per game
-* Input validation
-* Out-of-range guess detection
-* Higher/lower guess feedback
-* Live statistics:
-
-  * Attempts
-  * Remaining attempts
-  * Current score
-  * Best score
-  * Win streak
-  * Games played
-  * Games won
-  * Win rate
-* Previous guesses history
-* Visual feedback for:
-
-  * Correct guesses
-  * Too high guesses
-  * Too low guesses
-* Game-over handling
-* Play Again / game reset functionality
-* Best score tracking during the session
-* Win streak tracking
-* Responsive UI
-* Accessible focus states
-* No horizontal scrolling
-
----
-
-## Scoring
-
-The score is based on the number of attempts remaining when the player
-successfully guesses the secret number.
-
-The more attempts remaining when the number is guessed, the higher the score.
-
-The best score is tracked throughout the current session.
+- Difficulty selector (Easy / Medium / Hard) with distinct number ranges
+- Live statistics panel (attempts, remaining attempts, score, best score,
+  win streak, games played, games won, accuracy)
+- Guess input with validation and inline feedback
+- Previous guesses history list with high/low/correct indicators
+- Win/loss result modal — blocks page interaction, shows outcome and
+  final score, with its own Play Again button
+- Play Again control (both in the modal and on the main screen)
+- Fully responsive, no horizontal scroll, accessible focus states
 
 ---
 
 ## AI Usage Disclosure
 
-AI (Claude) was used to help generate the **UI/UX implementation**,
-including the HTML structure and CSS styling, based on a design specification
-I provided covering the visual style, layout, color palette, responsiveness,
-and accessibility requirements.
+I used AI (Claude) to help generate the **UI/UX** — the HTML structure and
+CSS styling — based on a detailed design spec I gave it (color palette,
+layout constraints, accessibility requirements, etc). This included the
+markup/styling for the win/loss result modal.
 
-The **game logic was developed by me**. This includes:
-
-* Random number generation
-* Difficulty handling
-* Guess validation
-* Guess comparison logic
-* Attempts and remaining attempts tracking
-* Score calculation
-* Best score tracking
-* Win streak tracking
-* Games played and games won tracking
-* Win rate calculation
-* DOM updates
-* Guess history rendering
-* Game-over handling
-* Play Again / reset behavior
-
-AI was later used to help refactor and organize parts of the JavaScript after
-the core functionality had been developed.
-
-I'm disclosing AI usage for transparency.
-
----
-
-## What I Learned
-
-This project was built as a JavaScript learning project and helped me
-practice:
-
-* JavaScript variables and scope
-* `let` and `const`
-* Functions and parameters
-* Conditional logic
-* Arrays
-* Number conversion and validation
-* DOM selection and manipulation
-* Creating and appending DOM elements
-* Event listeners
-* Form submission handling
-* Dynamic UI updates
-* Game state management
-* Basic application logic and statistics
+**All game logic (JavaScript) was written by me**, including:
+- Random number generation per difficulty
+- Guess validation and comparison logic
+- Attempts/remaining attempts tracking
+- Score, streak, and accuracy calculations
+- Difficulty handling
+- DOM updates for stats, feedback, and guess history
+- Showing/hiding the result modal and wiring both Play Again buttons
+- Play Again / reset behavior
 
 ---
 
 ## Roadmap
 
-* [x] Build semantic HTML structure
-* [x] Design responsive UI
-* [x] Implement difficulty selection
-* [x] Implement random number generation
-* [x] Implement guess validation
-* [x] Implement guess comparison and feedback
-* [x] Implement attempts and remaining attempts
-* [x] Implement scoring system
-* [x] Implement best score tracking
-* [x] Implement win streak tracking
-* [x] Implement games played / games won statistics
-* [x] Implement win rate
-* [x] Implement guess history
-* [x] Implement Play Again / reset flow
-* [x] Add game-over handling
-* [x] Test game functionality
-* [ ] Add screenshots / demo GIF
+- [x] Add `script.js` with full game logic
+- [x] Wire up difficulty selection to number ranges
+- [x] Implement guess validation + feedback messages
+- [x] Implement stats tracking (score, streak, accuracy, etc.)
+- [x] Implement guess history rendering
+- [x] Implement Play Again / reset flow
+- [x] Add win/loss result modal
+- [x] Final testing across devices
 
 ---
 
 ## Author
 
-**Ali Saad Attique**
-
+Ali Saad Attique
 GitHub: [noirdotdeb](https://github.com/noirdotdeb)
-
----
-
-*Built as a JavaScript learning project.*
-
-```
-```
