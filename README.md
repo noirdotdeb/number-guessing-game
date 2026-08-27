@@ -42,20 +42,29 @@ No Bootstrap, Tailwind, or external UI libraries were used.
 
 ## AI Usage Disclosure
 
-I used AI (Claude) to help generate the **UI/UX** — the HTML structure and
-CSS styling — based on a detailed design spec I gave it (color palette,
-layout constraints, accessibility requirements, etc). This included the
-markup/styling for the win/loss result modal.
+AI was used to help generate the **UI/UX**, including the HTML structure and CSS styling, based on a design specification I provided covering the visual style, layout, color palette, responsiveness, and accessibility requirements.
 
-**All game logic (JavaScript) was written by me**, including:
-- Random number generation per difficulty
-- Guess validation and comparison logic
-- Attempts/remaining attempts tracking
-- Score, streak, and accuracy calculations
-- Difficulty handling
-- DOM updates for stats, feedback, and guess history
-- Showing/hiding the result modal and wiring both Play Again buttons
-- Play Again / reset behavior
+This also included the markup and styling for the win/loss result modal.
+
+**The game logic was written by me**, including:
+
+* Random number generation
+* Difficulty and number-range handling
+* Input validation
+* Guess comparison
+* Attempt and remaining-attempt tracking
+* Score calculation
+* Best score tracking
+* Win streak tracking
+* Games played and games won tracking
+* Accuracy calculation
+* Guess history rendering
+* DOM updates
+* Game state handling
+* Play Again/reset functionality
+* Win/loss modal behavior
+
+The JavaScript was later refactored with AI assistance while keeping the underlying game logic and behavior based on my original implementation.
 
 ---
 
