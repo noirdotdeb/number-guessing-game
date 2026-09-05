@@ -1,18 +1,24 @@
-# Code Breaker — Number Guessing Game
+# 🎯 Code Breaker
 
-A minimal, dark-themed number guessing game with a subtle cyberpunk feel.
-The player has to guess a secret number within a limited number of attempts,
-tracked across difficulty levels with live stats (score, streak, accuracy, etc).
+A minimal, dark-themed number guessing game with a subtle cyberpunk edge. Pick a difficulty, crack the code within your allotted attempts, and watch your stats — score, streak, accuracy — build up as you play.
+
+---
+
+## Overview
+
+Code Breaker is a vanilla HTML/CSS/JS take on the classic number guessing game, built with a focus on clean game logic, live feedback, and a polished, distraction-free interface.
 
 ---
 
 ## Tech Stack
 
-- **HTML5** — semantic structure
-- **CSS3** — custom properties, Flexbox, Grid, no frameworks
-- **JavaScript** — vanilla, no libraries
+| Layer      | Tech                                  |
+|------------|----------------------------------------|
+| Structure  | HTML5 (semantic markup)                |
+| Styling    | CSS3 — custom properties, Flexbox, Grid |
+| Logic      | Vanilla JavaScript (no libraries)      |
 
-No Bootstrap, Tailwind, or external UI libraries were used.
+No Bootstrap, Tailwind, or external UI frameworks were used.
 
 ---
 
@@ -20,7 +26,7 @@ No Bootstrap, Tailwind, or external UI libraries were used.
 
 ```
 ├── index.html      # Semantic markup for the game UI
-├── style.css       # All styling (organized by section, see comments)
+├── style.css       # All styling, organized by section
 └── script.js       # Game logic
 ```
 
@@ -28,43 +34,61 @@ No Bootstrap, Tailwind, or external UI libraries were used.
 
 ## Features
 
-- Difficulty selector (Easy / Medium / Hard) with distinct number ranges
-- Live statistics panel (attempts, remaining attempts, score, best score,
-  win streak, games played, games won, accuracy)
-- Guess input with validation and inline feedback
-- Previous guesses history list with high/low/correct indicators
-- Win/loss result modal — blocks page interaction, shows outcome and
-  final score, with its own Play Again button
-- Play Again control (both in the modal and on the main screen)
-- Fully responsive, no horizontal scroll, accessible focus states
+- 🎚️ **Difficulty selector** — Easy / Medium / Hard, each with its own number range
+- 📊 **Live stats panel** — attempts, remaining attempts, score, best score, win streak, games played, games won, accuracy
+- ✅ **Guess input** with validation and inline feedback
+- 📜 **Guess history** — a running list of previous guesses with high/low/correct indicators
+- 🏁 **Win/loss result modal** — blocks page interaction, shows the outcome and final score, and includes its own Play Again button
+- 🔁 **Play Again** — available both in the modal and on the main screen
+- 📱 **Fully responsive** — no horizontal scroll, with accessible focus states throughout
+
+---
+
+## How to Play
+
+1. Choose a difficulty level.
+2. Guess a number within the given range.
+3. Use the high/low feedback to narrow down your next guess.
+4. Crack the code before you run out of attempts to win.
+
+---
+
+## Getting Started
+
+No build step or dependencies required.
+
+```bash
+git clone https://github.com/noirdotdeb/number-guessing-game.git
+cd number-guessing-game
+```
+
+Then just open `index.html` in your browser.
 
 ---
 
 ## AI Usage Disclosure
 
-AI was used to help generate the **UI/UX**, including the HTML structure and CSS styling, based on a design specification I provided covering the visual style, layout, color palette, responsiveness, and accessibility requirements.
-
-This also included the markup and styling for the win/loss result modal.
+AI was used to help generate the **UI/UX** — the HTML structure and CSS styling — based on a design specification I provided covering visual style, layout, color palette, responsiveness, and accessibility requirements. This included the markup and styling for the win/loss result modal.
 
 **The game logic was written by me**, including:
 
-* Random number generation
-* Difficulty and number-range handling
-* Input validation
-* Guess comparison
-* Attempt and remaining-attempt tracking
-* Score calculation
-* Best score tracking
-* Win streak tracking
-* Games played and games won tracking
-* Accuracy calculation
-* Guess history rendering
-* DOM updates
-* Game state handling
-* Play Again/reset functionality
-* Win/loss modal behavior
+- Random number generation
+- Difficulty and number-range handling
+- Input validation
+- Guess comparison
+- Attempt and remaining-attempt tracking
+- Score calculation
+- Best score tracking
+- Win streak tracking
+- Games played and games won tracking
+- Accuracy calculation
+- Guess history rendering
+- DOM updates
+- Game state handling
+- Play Again / reset functionality
+- Win/loss modal behavior
 
-The JavaScript was later refactored with AI assistance while keeping the underlying game logic and behavior based on my original implementation.
+The JavaScript was later refactored with AI assistance, while the underlying game logic and behavior remained based on my original implementation.
 
 ---
 
@@ -83,5 +107,5 @@ The JavaScript was later refactored with AI assistance while keeping the underly
 
 ## Author
 
-Ali Saad Attique
+**Ali Saad Attique**
 GitHub: [noirdotdeb](https://github.com/noirdotdeb)
